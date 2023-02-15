@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Тимофей Кадочников](https://up.htmlacademy.ru/javascript/28/user/990641).
-* Наставник: `Неизвестно`.
+* Наставник: [Евгений Лепёшкин](https://htmlacademy.ru/profile/spearance).
 
 ---
 
