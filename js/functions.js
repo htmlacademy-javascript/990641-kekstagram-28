@@ -1,21 +1,14 @@
-const isCompareString = (string, sign) => string.length < sign;
+const isCompareString = (string, sign) => string.length <= sign;
 
 isCompareString('проверяемая строка', 20);
 
 
 const isPalindromeCompare = (string) => {
   const tempString = string.toLowerCase().replaceAll(' ', '');
-  for (let i = 0; i < string.length / 2; i++) {
-    if (tempString[i] !== tempString[tempString.length - 1 - i]) {
-      return false;
-    }
-  }
-
-  return true;
+  return tempString === tempString.split('').reverse().join('');
 };
 
 isPalindromeCompare('Лёша на полке клопа нашёл');
-
 
 const getNumberFromString = (value) => {
 
@@ -27,6 +20,7 @@ const getNumberFromString = (value) => {
       result += stringValue[i];
     }
   }
+
   return parseInt(result, 10);
 };
 
