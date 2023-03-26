@@ -24,11 +24,4 @@ const renderComments = (photosCollection) => {
 
 };
 
-const renderPictureDetails = ({url, likes, description}) => {
-  bigPicture.querySelector('.big-picture__img img').src = url;
-  bigPicture.querySelector('.big-picture__img img').alt = description;
-  bigPicture.querySelector('.likes-count').textContent = likes;
-  bigPicture.querySelector('.social__caption').textContent = description;
-};
-
 export {renderComments};
