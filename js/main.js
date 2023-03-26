@@ -1,4 +1,3 @@
-import {getDescriptionPhoto} from './data.js';
-import './picture.js';
-
-getDescriptionPhoto();
+import './data.js';
+import './render-thumbnails.js';
+import './big-photo.js';
