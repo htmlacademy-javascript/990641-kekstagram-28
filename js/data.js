@@ -8,7 +8,7 @@ const IDENTIFY_COUNTS = {
 
 const COMMENTS = {
   MIN: 1,
-  MAX: 4,
+  MAX: 15,
 };
 
 const LIKES = {

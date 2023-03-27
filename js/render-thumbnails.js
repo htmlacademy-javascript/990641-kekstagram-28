@@ -9,13 +9,14 @@ const thumbnailFragment = document.createDocumentFragment();
 
 const renderThumbnails = (photosCollection) => {
 
-  photosCollection.forEach(({url, comments, likes}) => {
+  photosCollection.forEach(({url, comments, likes, id}) => {
 
     const thumbnailElement = thumbnailTemplate.cloneNode(true);
 
     thumbnailElement.querySelector('.picture__img').src = url;
     thumbnailElement.querySelector('.picture__comments').textContent = comments.length;
     thumbnailElement.querySelector('.picture__likes').textContent = likes;
+    thumbnailElement.dataset.thumbnailId = id;
 
     thumbnailFragment.appendChild(thumbnailElement);
   });
