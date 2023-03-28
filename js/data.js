@@ -8,7 +8,7 @@ const IDENTIFY_COUNTS = {
 
 const COMMENTS = {
   MIN: 1,
-  MAX: 15,
+  MAX: 25,
 };
 
 const LIKES = {
@@ -59,7 +59,7 @@ const addComments = () => {
     commentsUsers.push({
       id: getRandomNumber(IDENTIFY_COUNTS.MAX, IDENTIFY_COUNTS.OTHER),
       avatar: `img/avatar-${getRandomNumber(PHOTO_COUNTS.MIN, PHOTO_COUNTS.MAX)}.svg`,
-      messages: getRandomArray(COMMENTS_LIST),
+      message: getRandomArray(COMMENTS_LIST),
       name: getRandomArray(NAMES),
     });
   }
