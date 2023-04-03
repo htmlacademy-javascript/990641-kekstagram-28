@@ -1,4 +1,5 @@
 import {isEscapeKey} from './util.js';
+import {setDefaultLevel} from './filters.js';
 
 const COMMENTS_STEP = 5;
 
@@ -62,6 +63,7 @@ const closeBigPicture = () => {
   commentsCount = COMMENTS_STEP;
   currentComments = [];
   socialFooterText.value = '';
+  setDefaultLevel();
 };
 
 const onBigPictureKeyDown = (evt) => {
