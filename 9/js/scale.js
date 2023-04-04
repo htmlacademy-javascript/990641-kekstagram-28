@@ -29,4 +29,9 @@ const controlScaling = () => {
 
 };
 
-controlScaling();
+const resetScaling = () => {
+  scaleControlValue.value = `${SCALE_DEFAULT}%`;
+  uploadPreview.style.transform = `scale(${scaleControlValue.value})`;
+};
+
+export {controlScaling, resetScaling};

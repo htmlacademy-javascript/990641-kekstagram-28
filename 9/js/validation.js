@@ -1,4 +1,6 @@
 import {isEscapeKey} from './util.js';
+import {resetEffects, initPictureEffects} from './filters.js';
+import {controlScaling, resetScaling} from './scale.js';
 import '../vendor/pristine/pristine.min.js';
 
 const MAX_SYMBOLS = 20;
@@ -112,6 +114,8 @@ const modalClose = () => {
   uploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   uploadFile.value = '';
+  resetScaling();
+  resetEffects();
 };
 
 const modalEscClose = (evt) => {
@@ -146,6 +150,8 @@ const modalOpen = () => {
 
   document.addEventListener('keydown', modalEscClose);
   lockFocus();
+  controlScaling();
+  initPictureEffects();
 };
 
 const startModal = () => {
