@@ -1,4 +1,3 @@
-import {getDescriptionPhoto} from './data.js';
 import {showBigPicture} from './big-picture.js';
 
 const thumbnailsContainer = document.querySelector('.pictures');
@@ -28,6 +27,4 @@ const renderThumbnails = (photosCollection) => {
   return thumbnailsContainer.appendChild(thumbnailFragment);
 };
 
-renderThumbnails(getDescriptionPhoto());
-
-
+export {renderThumbnails};
