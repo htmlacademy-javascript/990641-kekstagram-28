@@ -1,37 +1,45 @@
-const SCALE_STEP = 25;
-const SCALE_DEFAULT = 100;
+const Zoom = {
+  MIN: 25,
+  MAX: 100,
+  STEP: 25,
+};
 
 const scaleControlSmaller = document.querySelector('.scale__control--smaller');
 const scaleControlBigger = document.querySelector('.scale__control--bigger');
 const scaleControlValue = document.querySelector('.scale__control--value');
 const uploadPreview = document.querySelector('.img-upload__preview img');
 
-const controlScaling = () => {
+const changeScale = (factor) => {
+  let size = parseInt(scaleControlValue.value, 10) + (Zoom.STEP * factor);
 
-  let standardValue = SCALE_DEFAULT;
-  scaleControlValue.value = `${standardValue}%`;
+  if (size < Zoom.MIN) {
+    size = Zoom.MIN;
+  }
 
-  scaleControlSmaller.addEventListener('click', () => {
-    if (standardValue > 25) {
-      standardValue -= SCALE_STEP;
-      scaleControlValue.value = `${standardValue}%`;
-      uploadPreview.style.transform = `scale(${scaleControlValue.value})`;
-    }
-  });
+  if (size > Zoom.MAX) {
+    size = Zoom.MAX;
+  }
 
-  scaleControlBigger.addEventListener('click', () => {
-    if (standardValue < 100) {
-      standardValue += SCALE_STEP;
-      scaleControlValue.value = `${standardValue}%`;
-      uploadPreview.style.transform = `scale(${scaleControlValue.value})`;
-    }
-  });
-
+  scaleControlValue.value = `${size}%`;
+  uploadPreview.style.transform = `scale(${size / 100})`;
 };
 
-const resetScaling = () => {
-  scaleControlValue.value = `${SCALE_DEFAULT}%`;
+const onMinusButtomClick = () => {
+  changeScale(-1);
+};
+
+const onPlusButtomClick = () => {
+  changeScale(1);
+};
+
+const controlScale = () => {
+  scaleControlBigger.addEventListener('click', onPlusButtomClick);
+  scaleControlSmaller.addEventListener('click', onMinusButtomClick);
+};
+
+const resetScale = () => {
+  scaleControlValue.value = `${Zoom.MAX}%`;
   uploadPreview.style.transform = `scale(${scaleControlValue.value})`;
 };
 
-export {controlScaling, resetScaling};
+export { controlScale, resetScale };
