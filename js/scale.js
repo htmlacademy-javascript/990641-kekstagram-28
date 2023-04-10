@@ -42,4 +42,4 @@ const resetScale = () => {
   uploadPreview.style.transform = `scale(${scaleControlValue.value})`;
 };
 
-export { controlScale, resetScale };
+export {controlScale, resetScale};

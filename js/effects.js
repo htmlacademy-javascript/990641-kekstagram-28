@@ -50,6 +50,7 @@ const EFFECTS = [
     unit: ''
   }
 ];
+
 const DEFAULT_EFFECT = EFFECTS[0];
 
 const uploadPreview = document.querySelector('.img-upload__preview img');
@@ -127,4 +128,4 @@ const initPictureEffects = () => {
   slider.noUiSlider.on('update', onSliderUpdate);
 };
 
-export { resetEffects, initPictureEffects };
+export {resetEffects, initPictureEffects};

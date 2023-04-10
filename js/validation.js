@@ -1,8 +1,8 @@
-import {isEscapeKey} from './util.js';
-import {resetEffects, initPictureEffects} from './filters.js';
+import {resetEffects, initPictureEffects} from './effects.js';
 import {controlScale, resetScale} from './scale.js';
 import {showError, showSuccess} from './alerts.js';
 import {sendRequest} from './fetch.js';
+import {isEscapeKey} from './util.js';
 import '../vendor/pristine/pristine.min.js';
 
 const MAX_SYMBOLS = 20;
@@ -116,6 +116,9 @@ const modalClose = () => {
   uploadOverlay.classList.add('hidden');
   document.body.classList.remove('modal-open');
   uploadFile.value = '';
+  uploadForm.reset();
+  pristine.reset();
+  uploadSubmit.disabled = false;
   resetScale();
   resetEffects();
 };
@@ -168,8 +171,7 @@ const onSuccess = () => {
 };
 
 const onError = () => {
-  showError('Что-то пошло не так', 'Загрузить другой файл');
-  modalClose();
+  showError('Что-то пошло не так', 'Попробуйте снова, или загрузите новый файл');
 };
 
 uploadForm.addEventListener('submit', (evt) => {
