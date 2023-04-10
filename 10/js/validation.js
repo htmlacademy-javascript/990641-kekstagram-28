@@ -1,6 +1,8 @@
 import {isEscapeKey} from './util.js';
 import {resetEffects, initPictureEffects} from './filters.js';
 import {controlScale, resetScale} from './scale.js';
+import {showError, showSuccess} from './alerts.js';
+import {sendRequest} from './fetch.js';
 import '../vendor/pristine/pristine.min.js';
 
 const MAX_SYMBOLS = 20;
@@ -158,6 +160,23 @@ const startModal = () => {
   uploadFile.addEventListener('input', modalOpen);
   uploadCancel.addEventListener('click', modalClickClose);
 };
+
+
+const onSuccess = () => {
+  showSuccess('Фотография успешно отправлена');
+  modalClose();
+};
+
+const onError = () => {
+  showError('Что-то пошло не так', 'Загрузить другой файл');
+  modalClose();
+};
+
+uploadForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+
+  sendRequest(onSuccess, onError, 'POST', new FormData(evt.target));
+});
 
 startModal();
 
