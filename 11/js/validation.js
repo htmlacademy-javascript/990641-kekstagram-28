@@ -117,6 +117,8 @@ const modalClose = () => {
   document.body.classList.remove('modal-open');
   uploadFile.value = '';
   uploadForm.reset();
+  pristine.reset();
+  uploadSubmit.disabled = false;
   resetScale();
   resetEffects();
 };

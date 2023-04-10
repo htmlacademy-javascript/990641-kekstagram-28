@@ -4,8 +4,6 @@ import {showError} from './alerts.js';
 import {sendRequest} from './fetch.js';
 import './big-picture.js';
 import './validation.js';
-// import './effects.js';
-// import './scale.js';
 import './load-image.js';
 
 

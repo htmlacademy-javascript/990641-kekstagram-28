@@ -22,7 +22,7 @@ const onErrorEscKeydown = (evt) => {
 };
 
 const onSuccessEscKeydown = (evt) => {
-  removeEscapeAlert(evt, '.error');
+  removeEscapeAlert(evt, '.success');
   document.removeEventListener('keydown', onSuccessEscKeydown);
 };
 
