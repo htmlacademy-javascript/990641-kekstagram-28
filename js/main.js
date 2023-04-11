@@ -35,7 +35,7 @@ const filters = {
   },
   'filter-discussed': () => {
     renderThumbnails(photos.slice()
-      .sort((a, b) => b.comments.length - a.comments.length));
+      .sort((primaryPhoto, secondaryPhoto) => secondaryPhoto.comments.length - primaryPhoto.comments.length));
   },
 };
 
